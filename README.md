@@ -10,3 +10,9 @@
 
 dot/install.shで一通りの設定はしてくれるはず。
 
+# いろいろインストールログ
+
+```
+$ sudo apt install gem
+```
+

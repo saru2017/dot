@@ -3,7 +3,8 @@ alias sl='ls'
 cd ~
 
 #export PS1="$ "
-if [ -n "$WSLENV" ]; then
+#if [ -n "$WSLENV" ]; then
+if [ `lscpu | grep "Hypervisor vendor" | grep "Windows Subsystem for Linux" | wc -l` -gt 0 ]; then
    echo "WSL"
    export PS1="${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\$ "
    export DISPLAY=localhost:0.0
