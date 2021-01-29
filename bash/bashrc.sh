@@ -11,7 +11,7 @@ elif [ `curl -m 5 -qf http://169.254.169.254/latest/meta-data/instance-id 2>/dev
    echo "AWS"
    export PS1="${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;31m\]\w\[\033[00m\]\n\$ "
    export DISPLAY=localhost:0.0    
-elif [ `grep "model name" /proc/cpuinfo |grep Intel | wc -l` -gt 0 ]; then
+elif [ `lscpu | grep "Architecture:" | grep aarch64| wc -l` -gt 0 ]; then
    export PS1="${debian_chroot:+($debian_chroot)}\[\033[01;33m\]\u@\h\[\033[00m\]:\[\033[01;33m\]\w\[\033[00m\]\n\$ "
    export DISPLAY=localhost:0.0    
 else
