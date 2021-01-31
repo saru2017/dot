@@ -1,5 +1,7 @@
 alias sl='ls'
 
+bind -f ~/dot/bash/inputrc
+
 cd ~
 
 #export PS1="$ "
@@ -21,6 +23,9 @@ export PATH=~/bin:$PATH
 
 alias clip="xsel -b"
 alias explorer="explorer.exe"
+alias fiber='powershell.exe /c start'
+alias arp='arp.exe'
+
 
 # Black       0;30     Dark Gray     1;30
 # Red         0;31     Light Red     1;31
