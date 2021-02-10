@@ -17,4 +17,5 @@ verify_environment(){
     
 }
 
+cd $1
 verify_environment

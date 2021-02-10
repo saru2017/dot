@@ -145,7 +145,7 @@
 
 ;; バッファ中の行番号表示の遅延設定
 (defvar linum-delay nil)
-(setq linum-delay t)
+(setq linum-delay nil)
 (defadvice linum-schedule (around linum-schedule-around () activate)
   (run-with-idle-timer 1.0 nil #'linum-update-current))
 
