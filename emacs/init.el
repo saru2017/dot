@@ -305,3 +305,10 @@
 (show-paren-mode t)
 (setq ring-bell-function 'ignore)
 (menu-bar-mode 0) 
+
+
+(define-key global-map [f5]
+  '(lambda ()
+     (interactive)
+     (insert (format-time-string "[%Y/%m/%d]"))))
+

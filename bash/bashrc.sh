@@ -20,6 +20,8 @@ else
 fi
 
 export PATH=~/bin:$PATH
+export PATH=~/go/bin:$PATH
+export GO111MODULE=off
 
 alias clip="xsel -b"
 alias explorer="explorer.exe"
