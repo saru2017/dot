@@ -21,12 +21,15 @@ fi
 
 export PATH=~/bin:$PATH
 export PATH=~/go/bin:$PATH
+export PATH=~/autopwn:$PATH
 export GO111MODULE=off
 
 alias clip="xsel -b"
 alias explorer="explorer.exe"
 alias fiber='powershell.exe /c start'
 alias arp='arp.exe'
+alias pwdc="pwd | clip"
+alias cdc="cd \`clip\`"
 
 
 # Black       0;30     Dark Gray     1;30

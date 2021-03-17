@@ -312,3 +312,12 @@
      (interactive)
      (insert (format-time-string "[%Y/%m/%d]"))))
 
+
+;; for yaml mode
+(add-to-list 'load-path "~/dot/emacs/yaml-mode")
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+(add-hook 'yaml-mode-hook
+  '(lambda ()
+      (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+
