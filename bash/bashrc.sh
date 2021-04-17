@@ -30,6 +30,8 @@ alias fiber='powershell.exe /c start'
 alias arp='arp.exe'
 alias pwdc="pwd | clip"
 alias cdc="cd \`clip\`"
+alias date='date "+%Y/%m/%d %H:%M:%S"'
+
 
 
 # Black       0;30     Dark Gray     1;30
