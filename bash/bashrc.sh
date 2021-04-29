@@ -9,6 +9,10 @@ cd ~
 if [ `lscpu | grep "Hypervisor vendor" | grep "Windows Subsystem for Linux" | wc -l` -gt 0 ]; then
    export PS1="${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\$ "
    export DISPLAY=localhost:0.0
+elif [ -n "$WSLENV" ]; then
+   export PS1="${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\$ "
+    export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
+#   export DISPLAY=localhost:0.0
 elif [ `curl -m 5 -qf http://169.254.169.254/latest/meta-data/instance-id 2>/dev/null | grep "i-" | wc -l` -gt 0 ]; then
    export PS1="${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;31m\]\w\[\033[00m\]\n\$ "
    export DISPLAY=localhost:0.0    
