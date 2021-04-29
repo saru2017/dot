@@ -339,5 +339,7 @@
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 (add-hook 'yaml-mode-hook
   '(lambda ()
-      (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+     (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+;; for reftex mode
+(add-hook 'yatex-mode-hook '(lambda () (reftex-mode t)))
 
