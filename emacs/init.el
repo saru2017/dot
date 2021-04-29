@@ -1,4 +1,3 @@
-;; WSL2 コピーアンドペーストをWindowsと共有
 
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
@@ -6,6 +5,8 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
+
+;; WSL2 コピーアンドペーストをWindowsと共有
 (unless window-system
   (when (getenv "DISPLAY")
     ;; Callback for when user cuts
@@ -33,6 +34,25 @@
     ;; http://shreevatsa.wordpress.com/2006/10/22/emacs-copypaste-and-x/
     ;; http://www.mail-archive.com/help-gnu-emacs@gnu.org/msg03577.html
     ))
+
+
+;;;;コピペ設定
+;(defun wsl-paste ()
+;  (interactive)
+;  (insert (shell-command-to-string "powershell.exe -command 'Get-Clipboard'")))
+;(global-set-key (kbd "C-c C-v") 'wsl-paste)
+;
+;(defun wsl-copy (start end)
+;  (interactive "r")
+;  (shell-command-on-region start end "clip.exe"))
+;
+;(global-set-key
+; (kbd "C-c C-c")
+;  'wsl-copy)
+
+
+
+
 
 (setq create-lockfiles nil)
 
@@ -65,8 +85,8 @@
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
+;;(add-to-list 'package-archives
+;;             '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
