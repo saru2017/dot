@@ -1,4 +1,5 @@
 syntax off
 set relativenumber
+set number
 set belloff=all
 
