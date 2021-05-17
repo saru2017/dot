@@ -1,4 +1,5 @@
 ;;; packet自動インストール用
+(setq warning-suppress-log-types '((package reinitialization)))
 (require 'package)
 (setq package-archives
       '(("gnu" . "https://elpa.gnu.org/packages/")
@@ -32,6 +33,10 @@ locate PACKAGE."
     (error
      (message "Couldn't install optional package `%s': %S" package err)
      nil)))
+
+;;; 共通で必要なパッケージ
+
+(require-package 'markdown-mode)
 
 
 ;;; 環境毎に変更
