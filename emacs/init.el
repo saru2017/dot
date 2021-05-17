@@ -5,7 +5,6 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
-
 ;; WSL2 コピーアンドペーストをWindowsと共有
 (unless window-system
   (when (getenv "DISPLAY")
@@ -343,3 +342,20 @@
 ;; for reftex mode
 (add-hook 'yatex-mode-hook '(lambda () (reftex-mode t)))
 
+
+;;; added by saru for Win Emacs
+
+;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ;;;
+;;; @ added by saru for setting                                     ;;;
+;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ;;;
+
+(defconst LOCATION_Y 0)
+(defconst LOCATION_X 0)
+(defconst COL_NUM 105)
+(defconst ROW_NUM 50)
+(defconst FONT_FAMILY "ＭＳ ゴシック")
+(defconst FONT_SIZE 10)
+(defconst LINE_SPACING 0.2)
+
+(tool-bar-mode 0)
+(setq inhibit-startup-message t)
