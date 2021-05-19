@@ -97,19 +97,19 @@
 
 ;; デフォルト フォント
 ;; (set-face-attribute 'default nil :family "Migu 1M" :height 110)
-(set-face-font 'default "Migu 1M-11:antialias=standard")
+;(set-face-font 'default "Migu 1M-11:antialias=standard")
 
 ;; プロポーショナル フォント
 ;; (set-face-attribute 'variable-pitch nil :family "Migu 1M" :height 110)
-(set-face-font 'variable-pitch "Migu 1M-11:antialias=standard")
+;(set-face-font 'variable-pitch "Migu 1M-11:antialias=standard")
 
 ;; 等幅フォント
 ;; (set-face-attribute 'fixed-pitch nil :family "Migu 1M" :height 110)
-(set-face-font 'fixed-pitch "Migu 1M-11:antialias=standard")
+;(set-face-font 'fixed-pitch "Migu 1M-11:antialias=standard")
 
 ;; ツールチップ表示フォント
 ;; (set-face-attribute 'tooltip nil :family "Migu 1M" :height 90)
-(set-face-font 'tooltip "Migu 1M-9:antialias=standard")
+;(set-face-font 'tooltip "Migu 1M-9:antialias=standard")
 
 ;;; fontset
 
@@ -129,7 +129,7 @@
 
 (setq default-frame-alist
       (append '((width                . 85)  ; フレーム幅
-                (height               . 38 ) ; フレーム高
+                (height               . 35 ) ; フレーム高
              ;; (left                 . 70 ) ; 配置左位置
              ;; (top                  . 28 ) ; 配置上位置
                 (line-spacing         . 0  ) ; 文字間隔
@@ -561,7 +561,7 @@
 (defconst LOCATION_Y 0)
 (defconst LOCATION_X 0)
 (defconst COL_NUM 105)
-(defconst ROW_NUM 50)
+(defconst ROW_NUM 45)
 (defconst FONT_FAMILY "ＭＳ ゴシック")
 (defconst FONT_SIZE 10)
 (defconst LINE_SPACING 0.2)
