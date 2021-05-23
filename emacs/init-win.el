@@ -1,5 +1,34 @@
 ;;; .emacs --- dot emacs file
 
+(require-package 'mozc)
+(setq default-input-method "japanese-mozc")
+
+(defun xsel-cut-function (text &optional push)
+  ;; Insert text to temp-buffer, and "send" content to xsel stdin
+  (with-temp-buffer
+    (insert text)
+    ;; I prefer using the "clipboard" selection (the one the
+    ;; typically is used by c-c/c-v) before the primary selection
+    ;; (that uses mouse-select/middle-button-click)
+    (call-process-region (point-min) (point-max) "xsel" nil 0 nil "--clipboard" "--input")))
+;; Call back for when user pastes
+(defun xsel-paste-function()
+  ;; Find out what is current selection by xsel. If it is different
+  ;; from the top of the kill-ring (car kill-ring), then return
+  ;; it. Else, nil is returned, so whatever is in the top of the
+  ;; kill-ring will be used.
+  (let ((xsel-output (shell-command-to-string "xsel --clipboard --output")))
+    (unless (string= (car kill-ring) xsel-output)
+      xsel-output )))
+;; Attach callbacks to hooks
+(setq interprogram-cut-function 'xsel-cut-function)
+(setq interprogram-paste-function 'xsel-paste-function)
+;; Idea from
+;; http://shreevatsa.wordpress.com/2006/10/22/emacs-copypaste-and-x/
+;; http://www.mail-archive.com/help-gnu-emacs@gnu.org/msg03577.html
+
+
+
 ;; This file is NOT part of GNU Emacs.
 
 ;; This file is free software; you can redistribute it and/or
@@ -63,7 +92,7 @@
 ;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ;;;
 
 ;; Altキーを使用せずにMetaキーを使用（有効：t、無効：nil）
-(setq w32-alt-is-meta t)
+;;(setq w32-alt-is-meta t)
 
 
 ;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ;;;
@@ -71,14 +100,14 @@
 ;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ;;;
 
 ;; モードラインの表示文字列
-(setq-default w32-ime-mode-line-state-indicator "[Aa] ")
-(setq w32-ime-mode-line-state-indicator-list '("[Aa]" "[あ]" "[Aa]"))
+;;(setq-default w32-ime-mode-line-state-indicator "[Aa] ")
+;;(setq w32-ime-mode-line-state-indicator-list '("[Aa]" "[あ]" "[Aa]"))
 
 ;; IME初期化
 ;;(w32-ime-initialize)
 
 ;; デフォルトIME
-(setq default-input-method "W32-IME")
+;;(setq default-input-method "W32-IME")
 
 ;; IME変更
 ;(global-set-key (kbd "C-\\") 'toggle-input-method)
@@ -129,7 +158,7 @@
 
 (setq default-frame-alist
       (append '((width                . 85)  ; フレーム幅
-                (height               . 35 ) ; フレーム高
+                (height               . 40 ) ; フレーム高
              ;; (left                 . 70 ) ; 配置左位置
              ;; (top                  . 28 ) ; 配置上位置
                 (line-spacing         . 0  ) ; 文字間隔
@@ -498,12 +527,12 @@
 ;;; @ package manager                                               ;;;
 ;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ;;;
 
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
-(package-initialize)
+;;(require 'package)
+;;(add-to-list 'package-archives
+;;             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+;;(add-to-list 'package-archives
+;;             '("marmalade" . "http://marmalade-repo.org/packages/"))
+;;(package-initialize)
 
 
 ;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ;;;
@@ -562,8 +591,8 @@
 (defconst LOCATION_X 0)
 (defconst COL_NUM 105)
 (defconst ROW_NUM 45)
-(defconst FONT_FAMILY "ＭＳ ゴシック")
-(defconst FONT_SIZE 10)
+;;(defconst FONT_FAMILY "ＭＳ ゴシック")
+(defconst FONT_SIZE 14)
 (defconst LINE_SPACING 0.2)
 
 (tool-bar-mode 0)
