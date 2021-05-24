@@ -18,8 +18,6 @@
 
 
 
-
-
 ;;;; レイアウト関連
 (setq default-frame-alist
       (append '((width                . 85)  ; フレーム幅
