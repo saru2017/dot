@@ -5,6 +5,7 @@
 ;;;;;; packageの設定
 (require-package 'mozc)
 (setq default-input-method "japanese-mozc")
+(setq mozc-candidate-style 'echo-area)
 
 ;;;;;; 半角・全角・漢字キーで日本語入力有効
 (global-set-key [zenkaku-hankaku] 'toggle-input-method)
@@ -15,7 +16,6 @@
 
 ;;;;;; modelineの色
 (set-face-background 'mode-line "dodger blue") 
-
 
 
 ;;;; レイアウト関連
@@ -87,7 +87,7 @@
 
 ;; 行番号の書式
 (defvar linum-format nil)
-(setq linum-format "%5d ")
+;setq linum-format "%5d ")
 
 ;; バッファ中の行番号表示（有効：t、無効：nil）
 (global-linum-mode t)
