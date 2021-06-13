@@ -88,6 +88,15 @@ $ /usr/lib/mozc/mozc_tool --mode=config_dialog
 
 ## フォント
 
+```
+sudo apt install fonts-ipafont fonts-ipaexfont
+```
+
+```
+$ sudo apt install fonts-migmix
+$ sudo apt install fonts-ricty-diminished
+```
+
 
 
 ## 色

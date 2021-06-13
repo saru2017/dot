@@ -1,5 +1,6 @@
 ;; .emacs --- dot emacs file
 
+
 ;;;; 日本語関連設定
 
 ;;;;;; packageの設定
@@ -33,9 +34,26 @@
                 (scroll-bar-width     . 17 ) ; スクロールバー幅
                 (cursor-type          . box) ; カーソル種別
                 (alpha                . 100) ; 透明度
+		(font . "Ricty Diminished-14")
                 ) default-frame-alist) )
 (setq initial-frame-alist default-frame-alist)
 
+; 半角英字設定
+;(set-face-attribute 'default nil :family "Consolas" :height 100)
+; 全角かな設定
+;(set-fontset-font (frame-parameter nil 'font)
+;                  'japanese-jisx0208
+					;                  (font-spec :family "IPAゴシック" :size 14))
+;                  (font-spec :family "Ricty Diminished"))		  
+; 半角ｶﾅ設定
+;(set-fontset-font (frame-parameter nil 'font)
+;                  'katakana-jisx0201
+;                  (font-spec :family "IPAゴシック" :size 14))
+;                  (font-spec :family "IPAゴシック"))
+; ずれ確認用
+; 0123456789012345678901234567890123456789
+; ｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵｱｲｳｴｵ
+; あいうえおあいうえおあいうえおあいうえお
 
 
 
@@ -232,7 +250,8 @@
 (require 'php-mode)
 (show-paren-mode t)
 (setq ring-bell-function 'ignore)
-(menu-bar-mode 0) 
+(menu-bar-mode -1)
+(tool-bar-mode 0)
 
 
 (define-key global-map [f5]
