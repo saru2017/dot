@@ -2,7 +2,7 @@ alias sl='ls'
 
 bind -f ~/dot/bash/inputrc
 
-cd ~
+#cd ~
 
 #export PS1="$ "
 #if [ -n "$WSLENV" ]; then
