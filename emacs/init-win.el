@@ -1,36 +1,7 @@
-;;; .emacs --- dot emacs file
+;;; winで必要なパッケージ
 
-;; This file is NOT part of GNU Emacs.
+(require-package 'w32-ime)
 
-;; This file is free software; you can redistribute it and/or
-;; modify it under the terms of the GNU General Public License as
-;; published by the Free Software Foundation; either version 2 of
-;; the License, or (at your option) any later version.
-
-;; This file is distributed in the hope that it will be
-;; useful, but WITHOUT ANY WARRANTY; without even the implied
-;; warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
-;; PURPOSE.  See the GNU General Public License for more details.
-
-;; You should have received a copy of the GNU General Public
-;; License along with this file; if not, write to the Free
-;; Software Foundation, Inc., 59 Temple Place - Suite 330, Boston,
-;; MA 02111-1307, USA.
-
-;;; Commentary:
-
-;;; Code:
-
-;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ;;;
-;;; @ site-lisp                                                     ;;;
-;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ;;;
-
-;;(let ( (default-directory
-;;         (file-name-as-directory (concat user-emacs-directory "site-lisp")))
-;;       )
-;;  (add-to-list 'load-path default-directory)
-;;  (normal-top-level-add-subdirs-to-load-path)
-;;  )
 
 
 ;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ;;;
@@ -62,20 +33,22 @@
 ;;; @ key binding - keyboard                                        ;;;
 ;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ;;;
 
-;; Altキーを使用せずにMetaキーを使用（有効：t、無効：nil）
+;; AltキーでMetaキー（有効：t、無効：nil）
 (setq w32-alt-is-meta t)
-
 
 ;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ;;;
 ;;; @ language - input method                                       ;;;
 ;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ;;;
 
 ;; モードラインの表示文字列
+(setq default-input-method "W32-IME")
+(w32-ime-initialize)
+
 (setq-default w32-ime-mode-line-state-indicator "[Aa] ")
 (setq w32-ime-mode-line-state-indicator-list '("[Aa]" "[あ]" "[Aa]"))
 
 ;; IME初期化
-;;(w32-ime-initialize)
+
 
 ;; デフォルトIME
 (setq default-input-method "W32-IME")
