@@ -654,6 +654,6 @@
 
 (autoload 'dockerfile-mode "dockerfile-mode" nil t)
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
-;;(require 'php-mode)
+(require 'php-mode)
 (show-paren-mode t)
 (setq ring-bell-function 'ignore)
